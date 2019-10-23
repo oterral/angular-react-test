@@ -1,37 +1,50 @@
-import { AfterViewInit, Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import * as uuid from 'uuid';
-import * as React from 'react';
-import { ReactDOM } from 'react';
-import TrafimageMaps from 'trafimage-maps';
+import * as React from "react";
+import ReactDOM from "react-dom";
+import TrafimageMaps from "trafimage-maps";
+import "zone.js/dist/zone"; // Included with Angular CLI.
+import {
+  AfterViewInit,
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges
+} from "@angular/core";
+import * as uuid from "uuid";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
-export class AppComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  title = 'angular-react-test';
+export class AppComponent
+  implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+  title = "angular-react-test";
 
   private domId: string;
   private netzkarteLayer = {
-    name: 'ch.sbb.netzkarte',
-    copyright: '© OpenStreetMap contributors, OpenMapTiles, imagico, SBB/CFF/FFS',
+    name: "ch.sbb.netzkarte",
+    copyright:
+      "© OpenStreetMap contributors, OpenMapTiles, imagico, SBB/CFF/FFS",
     isBaseLayer: true,
-    url: '/localhost:4211'
+    url: "/localhost:4211"
   };
   private props = {
     baseLayers: [this.netzkarteLayer],
     elements: {},
     topics: {
-      name: 'Digitale Stelen',
-      key: 'ch.sbb.stelen',
-      layers: [this.netzkarteLayer],
+      name: "Digitale Stelen",
+      key: "ch.sbb.stelen",
+      layers: [this.netzkarteLayer]
     }
   };
 
   render() {
     if (this.isMounted()) {
-      ReactDOM.render(React.createElement(TrafimageMaps, this.getProps()), this.getDomNode());
+      ReactDOM.render(
+        React.createElement(TrafimageMaps, this.getProps()),
+        this.getDomNode()
+      );
     }
   }
 
@@ -47,8 +60,7 @@ export class AppComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit
     this.render();
   }
 
-  ngOnDestroy(): void {
-  }
+  ngOnDestroy(): void {}
 
   private isMounted() {
     return !!this.domId;
