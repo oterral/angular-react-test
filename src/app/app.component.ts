@@ -1,6 +1,5 @@
-import * as React from "react";
-import ReactDOM from "react-dom";
-import TrafimageMaps from "trafimage-maps";
+import "trafimage-maps";
+import TrafimageMapboxLayer from "trafimage-maps/es/layers/TrafimageMapboxLayer";
 import "zone.js/dist/zone"; // Included with Angular CLI.
 import {
   AfterViewInit,
@@ -22,29 +21,38 @@ export class AppComponent
   title = "angular-react-test";
 
   private domId: string;
-  private netzkarteLayer = {
+  private tmMapId: string;
+  private netzkarteLayer = new TrafimageMapboxLayer({
     name: "ch.sbb.netzkarte",
     copyright:
       "© OpenStreetMap contributors, OpenMapTiles, imagico, SBB/CFF/FFS",
+    visible: true,
+    isQueryable: false,
     isBaseLayer: true,
-    url: "/localhost:4211"
-  };
+    radioGroup: "baseLayer",
+    preserveDrawingBuffer: true,
+    zIndex: -1, // Add zIndex as the MapboxLayer would block tiled layers (buslines)
+    style: "trafimage_perimeter_v2"
+  });
+
   private props = {
-    baseLayers: [this.netzkarteLayer],
-    elements: {},
-    topics: {
-      name: "Digitale Stelen",
-      key: "ch.sbb.stelen",
-      layers: [this.netzkarteLayer]
-    }
+    topics: [
+      {
+        key: "My topic",
+        layers: [this.netzkarteLayer]
+      }
+    ]
   };
 
   render() {
     if (this.isMounted()) {
-      ReactDOM.render(
-        React.createElement(TrafimageMaps, this.getProps()),
-        this.getDomNode()
-      );
+      const tm = document.getElementById("TmMap");
+      /* tm.topics = [
+        {
+          key: "My topic",
+          layers: [this.netzkarteLayer]
+        }
+      ]; */
     }
   }
 
