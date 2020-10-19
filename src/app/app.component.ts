@@ -1,4 +1,7 @@
 import "trafimage-maps";
+import RouteLayer from 'trafimage-maps/es/layers/RouteLayer';
+import ZoneLayer from 'trafimage-maps/es/layers/ZoneLayer';
+import {casa} from 'trafimage-maps/es/config/topics';
 import TrafimageMapboxLayer from "trafimage-maps/es/layers/TrafimageMapboxLayer";
 import "zone.js/dist/zone"; // Included with Angular CLI.
 import {
@@ -32,14 +35,16 @@ export class AppComponent
     radioGroup: "baseLayer",
     preserveDrawingBuffer: true,
     zIndex: -1, // Add zIndex as the MapboxLayer would block tiled layers (buslines)
-    style: "trafimage_perimeter_v2"
+    style: "base_bright_v2",
+    apiKey:"5cc87b12d7c5370001c1d655352830d2fef24680ae3a1cda54418cb8"
+    // https://maps.geops.io/styles/base_bright_v2/style.json?key=5cc87b12d7c5370001c1d655352830d2fef24680ae3a1cda54418cb8
   });
 
   private props = {
     topics: [
       {
         key: "My topic",
-        layers: [this.netzkarteLayer]
+        layers: []
       }
     ]
   };
@@ -47,12 +52,12 @@ export class AppComponent
   render() {
     if (this.isMounted()) {
       const tm = document.getElementById("TmMap");
-      /* tm.topics = [
+      tm["topics"] = [
         {
           key: "My topic",
-          layers: [this.netzkarteLayer]
+          layers: [ ...casa.layers,]
         }
-      ]; */
+      ];
     }
   }
 
