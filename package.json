@@ -21,9 +21,8 @@
     "@angular/router": "~8.2.5",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-spatial": "0.1.0-beta.25",
     "rxjs": "~6.4.0",
-    "trafimage-maps": "^0.3.3",
+    "trafimage-maps": "^1.2.35-beta.3",
     "tslib": "^1.10.0",
     "uuid": "^3.3.3",
     "zone.js": "~0.9.1"
