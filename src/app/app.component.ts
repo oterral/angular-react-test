@@ -17,8 +17,7 @@ import * as uuid from "uuid";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
-})
+  styleUrls: ["./app.component.scss"],})
 export class AppComponent
   implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   title = "angular-react-test";
@@ -54,8 +53,14 @@ export class AppComponent
       const tm = document.getElementById("TmMap");
       tm["topics"] = [
         {
-          key: "My topic",
-          layers: [ ...casa.layers,]
+          key: "Casa",
+          layers: [ ...casa.layers,],
+          elements: {
+            mapControls: true,
+            menu: false,
+            popup: true,
+            baseLayerSwitcher: true,
+          },
         }
       ];
     }

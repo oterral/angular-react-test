@@ -22,7 +22,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "rxjs": "~6.4.0",
-    "trafimage-maps": "^1.2.25-beta.2",
+    "trafimage-maps": "^1.2.35-beta.3",
     "tslib": "^1.10.0",
     "uuid": "^3.3.3",
     "zone.js": "~0.9.1"
