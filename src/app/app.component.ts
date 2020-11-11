@@ -35,8 +35,8 @@ export class AppComponent
     preserveDrawingBuffer: true,
     zIndex: -1, // Add zIndex as the MapboxLayer would block tiled layers (buslines)
     style: "base_bright_v2",
-    apiKey:"5cc87b12d7c5370001c1d655352830d2fef24680ae3a1cda54418cb8"
-    // https://maps.geops.io/styles/base_bright_v2/style.json?key=5cc87b12d7c5370001c1d655352830d2fef24680ae3a1cda54418cb8
+    apiKey:""
+    // https://maps.geops.io/styles/base_bright_v2/style.json?key=
   });
 
   private props = {
