@@ -1,23 +1,10 @@
-import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, element, by } from 'protractor';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
+describe('Tour of Heroes', () => {
+  beforeEach(() => browser.get('/'));
 
-  beforeEach(() => {
-    page = new AppPage();
-  });
-
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('angular-react-test app is running!');
-  });
-
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
+  it('should display "Tour of Heroes"', async () => {
+    const title = await element(by.css('app-root h1')).getText();
+    expect(title).toEqual('Tour of Heroes');
   });
 });
