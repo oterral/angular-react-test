@@ -1,0 +1,1 @@
+<html><head><script>window.onload = function() {window.location.href="/plugins/servlet/oauth/oauth?return_to=%2Fprojects%2FMVP_VKA%2Frepos%2Fcasa-angebot-web%2Fraw%2Fsrc%2Fapp%2Fscreens%2Froute-container%2Fmodules%2Froute-offer-shared%2Fmap-container%2Fmap-container.component.ts%3Fat%3Drefs%252Fheads%252Fdevelop"};</script></head><body>Please wait...</body></html>

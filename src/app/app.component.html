@@ -1,6 +1,7 @@
 <DIV>
     <h1>{{title}}</h1>
-   <div [id]="domId" style="position:relative;width:1000px;height:600px;" class="casa" >
+   <div [id]="domId" style="position:relative;width:1000px;height:600px;" class="casa" *ngIf="showMap">
     <trafimage-maps id="TmMap" appName="casa" apiKey="5cc87b12d7c5370001c1d655352830d2fef24680ae3a1cda54418cb8"></trafimage-maps>
   </div>
+  <button (click)="onToggle()" >show/hide</button>
 </DIV>

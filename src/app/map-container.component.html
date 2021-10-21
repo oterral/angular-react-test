@@ -1,0 +1,16 @@
+<app-map-header
+        [multiSelectionEnabled]="multiSelectionEnabled"
+        [multiSelectionValue]="multiSelectionValue"
+        [showMapSelected]="showMap"
+        (toggleMapClicked)="showMap = !showMap"
+        (multiSelectionClicked)="multiSelectionClicked.emit($event)"
+>
+</app-map-header>
+
+<app-map *ngIf="showMap"
+         [mapElements]="mapElements"
+         [zoneValidity]="zoneValidity"
+         (zoneClicked)="zoneClicked.emit($event)"
+         (routeClicked)="routeClicked.emit($event)"
+>
+</app-map>
